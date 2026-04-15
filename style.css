@@ -1,0 +1,189 @@
+/* --- Global Styles & Background --- */
+body {
+    margin: 0;
+    padding: 2rem 1rem;
+    /* Repeating background requested by user */
+    background-image: url('assets/background.jpg');
+    background-repeat: repeat;
+    /* Classic NYT font stack */
+    font-family: "Georgia", "Times New Roman", serif;
+    color: #333;
+    line-height: 1.6;
+}
+/* --- Alternating Article Rows --- */
+.article-row {
+    display: flex;
+    flex-direction: column; /* Stacks images and text on top of each other for mobile */
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.article-row h3 {
+    margin-top: 0; /* Removes top margin so the heading aligns nicely with the top of the image */
+    font-style: normal; /* Keeps the headings bold and upright like your screenshot */
+}
+
+/* On PC screens, place them side-by-side */
+@media (min-width: 768px) {
+    .article-row {
+        flex-direction: row; 
+        align-items: flex-start; /* Aligns both the image and text to the top */
+    }
+    
+    .article-image {
+        flex: 0 0 40%; /* Forces the image block to take up exactly 40% of the row width */
+    }
+    
+    .article-text {
+        flex: 1; /* Allows the text to naturally fill the remaining space */
+    }
+}
+/* --- Site Logo --- */
+.site-logo {
+    max-width: 50px; /* Change this number to make it bigger or smaller */
+    height: auto;
+    margin: 0 auto 1.5rem auto; /* This centers the logo and adds space below it */
+    display: block;
+}
+/* --- Container to ensure text is readable against the background --- */
+.newspaper-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 3rem 4rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 1px solid #ccc;
+}
+
+/* --- Typography & Headings (NYT Style) --- */
+h1 {
+    font-size: 2.8rem;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid #111; /* Newspaper double-line effect could be simulated here */
+    border-bottom-style: double;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-style: italic; /* Common in editorial subheadings */
+}
+
+p {
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+}
+
+/* --- Images --- */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem 0;
+}
+/* --- Labeled Images (Figures) --- */
+figure {
+    margin: 2.5rem auto; /* Adds healthy spacing above and below */
+    text-align: center; /* Centers the caption text */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Forces the image block into the exact center */
+}
+
+figure img {
+    margin: 0 auto 0.5rem auto; /* Centers the image and adds a tiny gap above the caption */
+}
+
+figcaption {
+    font-size: 0.9rem;
+    color: #666;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    max-width: 80%; /* Keeps the caption from stretching too wide, making it look more like a real newspaper */
+    margin: 0 auto; /* Centers the caption block */
+}
+
+/* --- Specific Layouts --- */
+
+/* Subheader 3: Side-by-side images with text */
+.side-by-side-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.image-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.image-group img {
+    width: 50%; /* Make the two images share the space */
+    margin: 0;
+}
+
+/* Subheader 5: Responsive Gallery (3 Images) */
+.responsive-gallery {
+    display: flex;
+    flex-direction: column; /* Stack under each other on phones */
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.responsive-gallery img {
+    margin: 0;
+}
+
+/* --- Media Queries (PC Screens) --- */
+@media (min-width: 768px) {
+    /* Adjust container padding for mobile vs desktop */
+    .newspaper-container {
+        padding: 3rem 4rem;
+    }
+
+    /* Subheader 3 layout adjustments for larger screens */
+    .side-by-side-layout {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .image-group {
+        flex: 1; /* Takes up half the space */
+    }
+    
+    .text-group {
+        flex: 1; /* Takes up the other half */
+    }
+
+    /* Subheader 5 gallery adjustments for PC (Beside each other) */
+    .responsive-gallery {
+        flex-direction: row;
+    }
+
+    .responsive-gallery img {
+        width: 33.333%;
+    }
+}
+
+@media (max-width: 767px) {
+    .newspaper-container {
+        padding: 1.5rem;
+    }
+    h1 {
+        font-size: 2.2rem;
+    }
+}
