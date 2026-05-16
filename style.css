@@ -447,9 +447,43 @@ p[style*="color: red"] {
 }
 
 /* =========================================================
+   BACK TO TOP BUTTON
+   ========================================================= */
+.back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 500;
+    width: 48px;
+    height: 48px;
+    background: var(--accent);
+    color: #f5ede0;
+    border-radius: 50%;
+    font-size: 1.6rem;
+    line-height: 48px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    opacity: 0.88;
+}
+
+.back-to-top:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* =========================================================
    MOBILE BREAKPOINT
    ========================================================= */
 @media (max-width: 767px) {
+    /* Fix scroll-jank: background-attachment:fixed is slow on mobile */
+    body {
+        background-attachment: scroll;
+        padding: 0;
+    }
+
     .newspaper-container {
         border-radius: 0;
     }
@@ -459,14 +493,24 @@ p[style*="color: red"] {
     }
 
     article {
-        padding: 1.5rem 1.5rem 2.5rem;
+        padding: 1.5rem 1rem 2.5rem;
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 1.9rem;
     }
 
     h2 {
-        font-size: 1.4rem;
+        font-size: 1.35rem;
+    }
+
+    /* Figure images full-width on mobile */
+    figure img {
+        max-width: 100%;
+    }
+
+    /* Show back-to-top on mobile (long page) */
+    .back-to-top {
+        display: block;
     }
 }

@@ -8,17 +8,17 @@
        Maps image filenames to warm/cool tone tints.
     ------------------------------------------------------- */
     const tintMap = {
-        'image.png':  'rgba(120, 60, 20,  0.12)',
-        '1.png':      'rgba(80,  50, 30,  0.10)',
-        'table.png':  'rgba(30,  50, 80,  0.10)',
-        '2.png':      'rgba(100, 70, 40,  0.11)',
-        '3.png':      'rgba(40,  60, 40,  0.10)',
-        '4.png':      'rgba(80,  40, 20,  0.12)',
-        '5.png':      'rgba(60,  30, 30,  0.12)',
-        '6.png':      'rgba(30,  40, 70,  0.10)',
-        '7.png':      'rgba(70,  50, 20,  0.11)',
-        'map.png':    'rgba(20,  60, 50,  0.10)',
-        'unk.png':    'rgba(30,  30, 30,  0.14)',
+        'image.jpg':  'rgba(120, 60, 20,  0.12)',
+        '1.jpg':      'rgba(80,  50, 30,  0.10)',
+        'table.jpg':  'rgba(30,  50, 80,  0.10)',
+        '2.jpg':      'rgba(100, 70, 40,  0.11)',
+        '3.jpg':      'rgba(40,  60, 40,  0.10)',
+        '4.jpg':      'rgba(80,  40, 20,  0.12)',
+        '5.jpg':      'rgba(60,  30, 30,  0.12)',
+        '6.jpg':      'rgba(30,  40, 70,  0.10)',
+        '7.jpg':      'rgba(70,  50, 20,  0.11)',
+        'map.jpg':    'rgba(20,  60, 50,  0.10)',
+        'unk.jpg':    'rgba(30,  30, 30,  0.14)',
     };
 
     function getTint(src) {
@@ -96,10 +96,10 @@
     });
 
     /* -------------------------------------------------------
-       4. PARALLAX HEADER
+       4. PARALLAX HEADER (desktop only — causes jank on mobile)
     ------------------------------------------------------- */
     const header = document.querySelector('.site-header');
-    if (header) {
+    if (header && window.matchMedia('(min-width: 768px)').matches) {
         let ticking = false;
         window.addEventListener('scroll', () => {
             if (!ticking) {
